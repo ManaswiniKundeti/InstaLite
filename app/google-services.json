@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537922320951",
+    "project_id": "instalite-b8068",
+    "storage_bucket": "instalite-b8068.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537922320951:android:2d12b64ccd678ed8f05db2",
+        "android_client_info": {
+          "package_name": "com.example.instalite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNObMcbtzEEXivOB2VgheXpRMjq7fxaRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

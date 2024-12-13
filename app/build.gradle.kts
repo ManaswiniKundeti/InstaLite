@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.dagger.hilt.android)
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services") // Google services Gradle plugin
 }
 
 android {
@@ -65,6 +66,9 @@ dependencies {
     implementation(libs.androidx.material3)
     // new dependencies
     // Firebase for authentication
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
     // Retrofit for networking
@@ -72,6 +76,7 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     // Room for local database
     implementation(libs.room.runtime)
+    implementation(libs.firebase.auth.ktx)
     kapt(libs.room.compiler)
     implementation(libs.room.ktx)
     // Coil for image loading in Compose

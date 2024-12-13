@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.dagger.hilt.android) apply false
     alias(libs.plugins.kotlin.serialization)
+    id("com.google.gms.google-services") version "4.4.2" apply false
 }
 
 
@@ -13,3 +14,4 @@ plugins {
 //libs.plugins.dagger.hilt.android: Configures Hilt for dependency injection and sets up annotation processors for Hilt.
 //kotlin-kapt: Kotlin Annotation Processing Tool. It processes annotations (like Hilt's) during build time and generates code.
 //kotlin-parcelize: Enables Kotlin's @Parcelize annotation for simplifying the implementation of Parcelable in Android.
+//com.google.gms.google-services : Google services Gradle plugin
