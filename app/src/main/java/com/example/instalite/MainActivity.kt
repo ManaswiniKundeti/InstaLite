@@ -11,7 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.instalite.ui.composables.ScreenDestinations
+import com.example.instalite.ui.composables.signupscreen.SignupScreen
 import com.example.instalite.ui.theme.InstaLiteTheme
+import com.example.instalite.viewmodel.InstaLiteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,7 +38,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun InstaLiteApp() {
-    Text(text = "Hello!")
+    val viewModel = hiltViewModel<InstaLiteViewModel>()
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = ScreenDestinations.SignUp.route) {
+        composable(route = ScreenDestinations.SignUp.route) {
+            SignupScreen(navController = navController, viewModel = viewModel)
+        }
+    }
 }
 
 @Preview(showBackground = true)
