@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt.android)
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -61,8 +64,32 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     // new dependencies
+    // Firebase for authentication
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
+    // Retrofit for networking
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    // Room for local database
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
+    implementation(libs.room.ktx)
+    // Coil for image loading in Compose
+    implementation(libs.coil.compose)
+    // compose runtime for viewmodel observe as state
+    implementation(libs.compose.runtime.livedata)
+    // Coroutines and Flows
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+    // Lifecycle and ViewModel
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    // Hilt for Dependency Injection
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    // Hilt for ViewModels in Compose
+    implementation(libs.hilt.navigation.compose)
+
 
     // Test Dependencies - default
     testImplementation(libs.junit)
@@ -73,4 +100,22 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     // new test dependencies
+    // Hilt for testing
+    androidTestImplementation(libs.hilt.android.testing)
+//    kaptAndroidTest(libs.hilt.compiler)
+
+    // for unit testing
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+    androidTestImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+
+    // For Coroutines Testing
+    testImplementation(libs.kotlin.coroutines.test)
+    testImplementation (libs.core.testing)
+    // For Android Logging (Optional, mock log)
+    testImplementation("androidx.test:core:1.4.0")
+
+}
+kapt {
+    correctErrorTypes = true
 }
